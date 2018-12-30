@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/arvosaalits/messente-api-client/helpers"
 )
 
 // Network struct
@@ -23,10 +25,10 @@ type Response struct {
 }
 
 // Listing returns the list of the prices
-func Listing(countryCode string, apiUsername string, apiPassword string) (*Response, error) {
-	url := fmt.Sprintf("https://api2.messente.com/prices/?username=%s&password=%s&country=%s", apiUsername, apiPassword, countryCode)
-	fmt.Println(url)
+func Listing(countryCode string) (*Response, error) {
+	credentials := helpers.APICredentials()
 
+	url := fmt.Sprintf("%s/prices/?username=%s&password=%s&country=%s", helpers.MessenteAPIUrl, credentials.Username, credentials.Password, countryCode)
 	response, err := http.Get(url)
 	if err != nil {
 		return nil, err

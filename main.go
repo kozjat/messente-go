@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	resp, err := pricing.Listing("GB", "apiUsername", "apiPassword")
+	resp, err := pricing.Listing("GB")
 	if err != nil {
 		panic(err)
 	}
