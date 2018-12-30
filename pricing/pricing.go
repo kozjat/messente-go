@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/arvosaalits/messente-api-client/helpers"
+	"github.com/arvosaalits/messente-go/helpers"
 )
 
 // Network struct
@@ -40,8 +40,6 @@ func Listing(countryCode string) (*Response, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	fmt.Println(response.Status, response.StatusCode, string(body))
 
 	var responseObject Response
 	json.Unmarshal(body, &responseObject)

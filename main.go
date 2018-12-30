@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/arvosaalits/messente-api-client/pricing"
+	"github.com/arvosaalits/messente-go/balance"
+	"github.com/arvosaalits/messente-go/pricing"
 )
 
 func main() {
@@ -13,4 +14,11 @@ func main() {
 	}
 
 	fmt.Println(resp)
+
+	balance, err := balance.Get()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Balance:", balance)
 }
