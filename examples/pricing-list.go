@@ -3,7 +3,7 @@ package examples
 import (
 	"fmt"
 
-	"github.com/arvosaalits/messente-go/pricing"
+	"github.com/kozjat/messente-go/pricing"
 )
 
 // GetPricingList example

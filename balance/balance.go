@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/arvosaalits/messente-go/helpers"
+	"github.com/kozjat/messente-go/helpers"
 )
 
 // Get returns the account balance

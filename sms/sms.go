@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/arvosaalits/messente-go/helpers"
+	"github.com/kozjat/messente-go/helpers"
 )
 
 // Arguments is an options struct for the Send method

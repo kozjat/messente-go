@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/arvosaalits/messente-go/balance"
-	"github.com/arvosaalits/messente-go/pricing"
-	"github.com/arvosaalits/messente-go/sms"
+	"github.com/kozjat/messente-go/balance"
+	"github.com/kozjat/messente-go/pricing"
+	"github.com/kozjat/messente-go/sms"
 )
 
 func main() {

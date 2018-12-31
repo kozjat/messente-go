@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/arvosaalits/messente-go/helpers"
+	"github.com/kozjat/messente-go/helpers"
 )
 
 // Network struct

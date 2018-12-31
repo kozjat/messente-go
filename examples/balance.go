@@ -3,7 +3,7 @@ package examples
 import (
 	"fmt"
 
-	"github.com/arvosaalits/messente-go/balance"
+	"github.com/kozjat/messente-go/balance"
 )
 
 // GetBalance example

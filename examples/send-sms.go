@@ -3,7 +3,7 @@ package examples
 import (
 	"fmt"
 
-	"github.com/arvosaalits/messente-go/sms"
+	"github.com/kozjat/messente-go/sms"
 )
 
 // SendSMS example
