@@ -1,7 +1,7 @@
 ## WIP: API Wrapper for Messente (messente.com) APIs
 
 ### Getting started
-API access credentials should be created as environment variable
+API access credentials should be stored as an environment variables
 ```
 MESSENTE_API_USERNAME=your_api_key
 MESSENTE_API_PASSWORD=your_api_secret
