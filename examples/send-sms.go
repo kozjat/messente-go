@@ -8,7 +8,7 @@ import (
 
 // SendSMS example
 func SendSMS() {
-	sentSms, err := sms.Send(&sms.Arguments{
+	sentSms, err := sms.Send(&sms.Options{
 		ReceiverNumber: "+372123456789",
 		SenderName:     "SenderNameHere",
 	})

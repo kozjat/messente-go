@@ -22,7 +22,7 @@ func main() {
 	}
 	fmt.Println("Balance:", balance)
 
-	sentSms, err := sms.Send(&sms.Arguments{
+	sentSms, err := sms.Send(&sms.Options{
 		ReceiverNumber: "+372123456789",
 		SenderName:     "Sender",
 	})

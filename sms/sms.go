@@ -8,8 +8,8 @@ import (
 	"github.com/kozjat/messente-go/helpers"
 )
 
-// Arguments is an options struct for the Send method
-type Arguments struct {
+// Options is an options struct for the Send method
+type Options struct {
 	// Name that sms receiver see as a sender name
 	SenderName string
 
@@ -18,7 +18,7 @@ type Arguments struct {
 }
 
 // Send method sends the sms and returns the string
-func Send(config *Arguments) (string, error) {
+func Send(config *Options) (string, error) {
 	credentials := helpers.APICredentials()
 
 	url := fmt.Sprintf(
