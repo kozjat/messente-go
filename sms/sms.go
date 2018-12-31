@@ -3,8 +3,6 @@ package sms
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 	"strings"
 
 	"github.com/arvosaalits/messente-go/helpers"
@@ -25,22 +23,15 @@ func Send(config *Arguments) (string, error) {
 		helpers.MessenteAPIUrl, credentials.Username, credentials.Password, config.SenderName, config.ReceiverNumber,
 	)
 
-	response, err := http.Get(url)
-	if err != nil {
-		return "", err
-	}
-
-	defer response.Body.Close()
-
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := helpers.ReadBody(url)
 	if err != nil {
 		return "", err
 	}
 
 	prefix := "OK "
 	var value string
-	if strings.HasPrefix(string(body), prefix) {
-		value = strings.TrimPrefix(string(body), prefix)
+	if strings.HasPrefix(body, prefix) {
+		value = strings.TrimPrefix(body, prefix)
 	}
 
 	return value, errors.New(string(body))

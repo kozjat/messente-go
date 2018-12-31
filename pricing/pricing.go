@@ -3,8 +3,6 @@ package pricing
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 
 	"github.com/arvosaalits/messente-go/helpers"
 )
@@ -29,20 +27,13 @@ func Listing(countryCode string) (*Response, error) {
 	credentials := helpers.APICredentials()
 
 	url := fmt.Sprintf("%s/prices/?username=%s&password=%s&country=%s", helpers.MessenteAPIUrl, credentials.Username, credentials.Password, countryCode)
-	response, err := http.Get(url)
-	if err != nil {
-		return nil, err
-	}
-
-	defer response.Body.Close()
-
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := helpers.ReadBody(url)
 	if err != nil {
 		return nil, err
 	}
 
 	var responseObject Response
-	json.Unmarshal(body, &responseObject)
+	json.Unmarshal([]byte(body), &responseObject)
 
 	return &responseObject, nil
 }

@@ -2,8 +2,6 @@ package balance
 
 import (
 	"fmt"
-	"io/ioutil"
-	"net/http"
 	"strconv"
 	"strings"
 
@@ -15,14 +13,7 @@ func Get() (float64, error) {
 	credentials := helpers.APICredentials()
 
 	url := fmt.Sprintf("%s/get_balance/?username=%s&password=%s", helpers.MessenteAPIUrl, credentials.Username, credentials.Password)
-	response, err := http.Get(url)
-	if err != nil {
-		return 0, err
-	}
-
-	defer response.Body.Close()
-
-	body, err := ioutil.ReadAll(response.Body)
+	body, err := helpers.ReadBody(url)
 	if err != nil {
 		return 0, err
 	}
