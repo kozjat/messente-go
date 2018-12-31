@@ -8,13 +8,16 @@ import (
 	"github.com/arvosaalits/messente-go/helpers"
 )
 
-// Arguments struct
+// Arguments is an options struct for the Send method
 type Arguments struct {
-	SenderName     string
+	// Name that sms receiver see as a sender name
+	SenderName string
+
+	// Receiver number that starts with area code
 	ReceiverNumber string
 }
 
-// Send method sends the sms and returns boolean
+// Send method sends the sms and returns the string
 func Send(config *Arguments) (string, error) {
 	credentials := helpers.APICredentials()
 
