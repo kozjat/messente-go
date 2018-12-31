@@ -9,22 +9,12 @@ MESSENTE_API_PASSWORD=your_api_secret
 
 ### [Pricing API] Request pricing list
 ```
-resp, err := pricing.Listing("countryCode")
-if err != nil {
-    panic(err)
-}
-
-fmt.Println(resp) // pricing.Response object
+resp, err := pricing.Listing("countryCode") // pricing.Response, error
 ```
 
 ### [Account Balance API] Get account balance
 ```
-balance, err := balance.Get()
-if err != nil {
-    panic(err)
-}
-
-fmt.Println("Balance:", balance) // float64
+balance, err := balance.Get() // float64, error
 ```
 
 ### [SMS API] Send sms
@@ -32,11 +22,5 @@ fmt.Println("Balance:", balance) // float64
 sentSms, err := sms.Send(&sms.Arguments{
     ReceiverNumber: "+372123456789",
     SenderName:     "SenderNameHere",
-})
-
-if err != nil {
-    panic(err)
-}
-
-fmt.Println(sentSms)
+}) // string, error
 ```
