@@ -26,3 +26,17 @@ if err != nil {
 
 fmt.Println("Balance:", balance) // float64
 ```
+
+### [SMS API] Send sms
+```
+sentSms, err := sms.Send(&sms.Arguments{
+    ReceiverNumber: "+372123456789",
+    SenderName:     "SenderNameHere",
+})
+
+if err != nil {
+    panic(err)
+}
+
+fmt.Println(sentSms)
+```
