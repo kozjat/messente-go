@@ -19,7 +19,7 @@ balance, err := balance.Get() // float64, error
 
 ### [SMS API] Send sms
 ```
-sentSms, err := sms.Send(&sms.Arguments{
+sentSms, err := sms.Send(&sms.Options{
     ReceiverNumber: "+372123456789",
     SenderName:     "SenderNameHere",
 }) // string, error
