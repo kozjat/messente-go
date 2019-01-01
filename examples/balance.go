@@ -13,5 +13,5 @@ func GetBalance() {
 		panic(err)
 	}
 
-	fmt.Println("Balance:", balance)
+	fmt.Println("Account balance:", balance)
 }
