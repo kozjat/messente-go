@@ -17,5 +17,5 @@ func SendSMS() {
 		panic(err)
 	}
 
-	fmt.Println(sentSms)
+	fmt.Printf("SMS sent! ID: %s\n", sentSms)
 }
