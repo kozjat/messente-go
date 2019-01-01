@@ -17,6 +17,13 @@ resp, err := pricing.Listing("countryCode") // pricing.Response, error
 balance, err := balance.Get() // float64, error
 ```
 
+### [Number Lookup API] Get number information
+```
+lookup, err := lookup.Lookup([]string{
+    "+371123456789",
+}) // lookup.Response, error
+```
+
 ### [SMS API] Send sms
 ```
 sentSms, err := sms.Send(&sms.Options{

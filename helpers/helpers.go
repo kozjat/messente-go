@@ -6,6 +6,9 @@ import (
 	"os"
 )
 
+// BaseAPIUrl is the base ur of the Messente's main API
+const BaseAPIUrl = "https://api.messente.com"
+
 // MessenteAPIUrl is the base url of the Messente's V2 API
 const MessenteAPIUrl = "https://api2.messente.com"
 
