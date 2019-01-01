@@ -13,5 +13,8 @@ func GetPricingList() {
 		panic(err)
 	}
 
-	fmt.Println(provider) // pricing.Response object
+	fmt.Printf("Pricing list / Country name: %s, code: %s\n", provider.Name, provider.Country)
+	for _, item := range provider.Networks {
+		fmt.Printf("Provider name: %s, price (per message): %s\n", item.Provider, item.Price)
+	}
 }
