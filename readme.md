@@ -1,4 +1,4 @@
-## WIP: API Wrapper for Messente (messente.com) APIs
+## API Wrapper for Messente (messente.com) APIs
 
 ### Getting started
 API access credentials should be stored as an environment variables
