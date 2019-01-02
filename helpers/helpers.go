@@ -1,6 +1,7 @@
 package helpers
 
 import (
+	"bytes"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -26,15 +27,25 @@ func APICredentials() Credentials {
 	}
 }
 
-// ReadBody method
-func ReadBody(url string) (string, error) {
-	response, err := http.Get(url)
-	if err != nil {
-		return "", err
+// Request method
+func Request(method string, url string, data []byte) ([]byte, error) {
+	payload := bytes.NewBuffer(data)
+	req, _ := http.NewRequest(method, url, payload)
+
+	if method == "POST" {
+		credentials := APICredentials()
+		req.SetBasicAuth(credentials.Username, credentials.Password)
+		req.Header.Set("Content-Type", "application/json")
 	}
 
-	defer response.Body.Close()
+	c := http.DefaultClient
+	resp, err := c.Do(req)
+	if err != nil {
+		return nil, err
+	}
 
-	body, err := ioutil.ReadAll(response.Body)
-	return string(body), err
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	return body, err
 }

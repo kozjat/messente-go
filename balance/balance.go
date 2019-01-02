@@ -13,7 +13,7 @@ func Get() (float64, error) {
 	credentials := helpers.APICredentials()
 
 	url := fmt.Sprintf("%s/get_balance/?username=%s&password=%s", helpers.MessenteAPIUrl, credentials.Username, credentials.Password)
-	body, err := helpers.ReadBody(url)
+	body, err := helpers.Request("GET", url, []byte(""))
 	if err != nil {
 		return 0, err
 	}

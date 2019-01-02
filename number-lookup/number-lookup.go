@@ -1,11 +1,8 @@
 package lookup
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
-	"net/http"
 
 	"github.com/kozjat/messente-go/helpers"
 )
@@ -44,26 +41,12 @@ type RequestBody struct {
 
 // Lookup method
 func Lookup(numbers []string) (*Response, error) {
-	credentials := helpers.APICredentials()
-
 	uri := fmt.Sprintf("%s/hlr/sync", helpers.BaseAPIUrl)
 	data, _ := json.Marshal(RequestBody{
 		Numbers: numbers,
 	})
 
-	req, _ := http.NewRequest("POST", uri, bytes.NewBuffer(data))
-	req.SetBasicAuth(credentials.Username, credentials.Password)
-	req.Header.Set("Content-Type", "application/json")
-
-	c := http.DefaultClient
-	resp, err := c.Do(req)
-	if err != nil {
-		return nil, err
-	}
-
-	defer resp.Body.Close()
-
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := helpers.Request("POST", uri, data)
 	if err != nil {
 		return nil, err
 	}

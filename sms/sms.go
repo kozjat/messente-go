@@ -26,15 +26,15 @@ func Send(config *Options) (string, error) {
 		helpers.MessenteAPIUrl, credentials.Username, credentials.Password, config.SenderName, config.ReceiverNumber,
 	)
 
-	body, err := helpers.ReadBody(url)
+	body, err := helpers.Request("GET", url, []byte(""))
 	if err != nil {
 		return "", err
 	}
 
 	prefix := "OK "
 	var value string
-	if strings.HasPrefix(body, prefix) {
-		value = strings.TrimPrefix(body, prefix)
+	if strings.HasPrefix(string(body), prefix) {
+		value = strings.TrimPrefix(string(body), prefix)
 	}
 
 	return value, errors.New(string(body))

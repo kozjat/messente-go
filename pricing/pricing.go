@@ -27,7 +27,7 @@ func Listing(countryCode string) (*Response, error) {
 	credentials := helpers.APICredentials()
 
 	url := fmt.Sprintf("%s/prices/?username=%s&password=%s&country=%s", helpers.MessenteAPIUrl, credentials.Username, credentials.Password, countryCode)
-	body, err := helpers.ReadBody(url)
+	body, err := helpers.Request("GET", url, []byte(""))
 	if err != nil {
 		return nil, err
 	}
