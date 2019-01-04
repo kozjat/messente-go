@@ -9,7 +9,7 @@ import (
 // NumberLookup example
 func NumberLookup() {
 	lookup, err := lookup.Lookup([]string{
-		"+372123456789",
+		"+372123456789", // Replace it with actual phone number
 	})
 
 	if err != nil {
