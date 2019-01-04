@@ -1,6 +1,7 @@
 package sms
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 
@@ -36,5 +37,10 @@ func Send(config *Options) (string, error) {
 		value = strings.TrimPrefix(string(body), prefix)
 	}
 
-	return value, ErrorCodes[string(body)]
+	err, ok := ErrorCodes[string(body)]
+	if ok {
+		return value, err
+	}
+
+	return value, errors.New("Unknown error" + string(body))
 }
