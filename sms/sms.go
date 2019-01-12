@@ -15,15 +15,18 @@ type Options struct {
 
 	// Receiver number that starts with area code
 	ReceiverNumber string
+
+	// Text to send via SMS
+	Text string
 }
 
-// Send method sends the sms and returns the string
+// Send method sends the request to  and returns the string that contains SMS ID
 func Send(config *Options) (string, error) {
 	credentials := helpers.APICredentials()
 
 	url := fmt.Sprintf(
-		"%s/send_sms/?username=%s&password=%s&from=%s&to=%s",
-		helpers.MessenteAPIUrl, credentials.Username, credentials.Password, config.SenderName, config.ReceiverNumber,
+		"%s/send_sms/?username=%s&password=%s&from=%s&to=%s&text=%s",
+		helpers.MessenteAPIUrl, credentials.Username, credentials.Password, config.SenderName, config.ReceiverNumber, config.Text,
 	)
 
 	body, err := helpers.Request("GET", url, []byte(""))
