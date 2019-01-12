@@ -11,6 +11,7 @@ func SendSMS() {
 	sentSms, err := sms.Send(&sms.Options{
 		ReceiverNumber: "+372123456789",
 		SenderName:     "SenderNameHere",
+		Text:           "Your SMS content here",
 	})
 
 	if err != nil {
