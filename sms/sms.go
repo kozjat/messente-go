@@ -38,6 +38,7 @@ func Send(config *Options) (string, error) {
 	var value string
 	if strings.HasPrefix(string(body), prefix) {
 		value = strings.TrimPrefix(string(body), prefix)
+		return value, nil
 	}
 
 	err, ok := ErrorCodes[string(body)]
